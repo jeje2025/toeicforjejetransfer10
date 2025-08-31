@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOEIC Test 10 완벽 분석 - 850점 목표 학습 가이드</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(0.8); }
+            50% { transform: scale(1.2); }
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .score-boost {
+            background: rgba(255,255,255,0.2);
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 25px;
+            margin-top: 15px;
+            font-weight: bold;
+            backdrop-filter: blur(10px);
+        }
+
+        .navigation {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .nav-btn {
+            flex-shrink: 0;
+            padding: 15px 25px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            color: #666;
+            transition: all 0.3s;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .nav-btn.active {
+            color: #667eea;
+            background: white;
+        }
+
+        .nav-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #667eea;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .part-title {
+            font-size: 24px;
+            color: #667eea;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .part-title::before {
+            font-size: 30px;
+        }
+
+        .card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(102,126,234,0.2);
+        }
+
+        .card h3 {
+            color: #495057;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .pattern-box {
+            background: #e8f4f8;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .pattern-box h4 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .example-list {
+            list-style: none;
+            margin: 15px 0;
+        }
+
+        .example-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #e9ecef;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .example-list li:last-child {
+            border-bottom: none;
+        }
+
+        .example-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tip-box::before {
+            content: '💡';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 50px;
+            opacity: 0.3;
+        }
+
+        .tip-box h4 {
+            color: #2d3436;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .vocabulary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .vocab-item {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .vocab-item:hover {
+            border-color: #667eea;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102,126,234,0.2);
+        }
+
+        .vocab-item strong {
+            display: block;
+            color: #667eea;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .vocab-item span {
+            display: block;
+            color: #666;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .question-nums {
+            display: inline-block;
+            background: rgba(102,126,234,0.1);
+            color: #667eea;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .grammar-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .grammar-table th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .grammar-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e9ecef;
+            font-size: 13px;
+        }
+
+        .grammar-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .grammar-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        code {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: #495057;
+        }
+
+        .formula {
+            background: #667eea;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .signal-words {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .signal-word {
+            background: #667eea;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            border-top: 1px solid #e9ecef;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 22px;
+            }
+            
+            .nav-btn {
+                font-size: 12px;
+                padding: 12px 15px;
+            }
+            
+            .vocabulary-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 TOEIC Test 10 완벽 분석</h1>
+            <p>850점 이상 목표를 위한 체계적 학습 가이드</p>
+            <div class="score-boost">Part 5&6, Part 7, 필수 어휘 완전 정복!</div>
+        </div>
+
+        <div class="navigation">
+            <button class="nav-btn active" data-section="part5">Part 5&6 핵심</button>
+            <button class="nav-btn" data-section="part7">Part 7 전략</button>
+            <button class="nav-btn" data-section="vocab">필수 어휘</button>
+            <button class="nav-btn" data-section="summary">학습 요약</button>
+        </div>
+
+        <div class="content">
+            <!-- Part 5&6 Section -->
+            <div id="part5" class="section active">
+                <h2 class="part-title">📚 Part 5&6 핵심 문법/어휘 포인트 TOP 5</h2>
+                
+                <div class="card">
+                    <h3>1️⃣ 부사의 위치와 역할 <span class="question-nums">Q.102, 127</span></h3>
+                    <p style="margin-bottom: 20px;">부사는 동사, 형용사, 다른 부사, 문장 전체를 수식합니다. 특히 -ly로 끝나는 부사와 형용사 구분이 핵심!</p>
+                    
+                    <div class="pattern-box">
+                        <h4>📌 기출 예문</h4>
+                        <ul class="example-list">
+                            <li><strong>Q.102:</strong> "The policy must be <span class="highlight">strictly</span> followed"<br>
+                            → strictly (부사) vs strict (형용사) - 동사 followed를 수식하므로 부사가 정답</li>
+                            <li><strong>Q.127:</strong> "Samidu Communications is <span class="highlight">productively</span> soliciting suggestions"<br>
+                            → productive (형용사) vs productively (부사) - 동사 soliciting을 수식</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: white; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                        <h4 style="color: #667eea; margin-bottom: 10px;">분석 포인트</h4>
+                        <p>✅ 동사를 수식 = 부사<br>
+                        ✅ 명사를 수식 = 형용사<br>
+                        ✅ be동사 + 형용사 (보어)<br>
+                        ✅ 일반동사 + 부사 (수식어)</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>2️⃣ 시제 일치와 현재완료 <span class="question-nums">Q.120, 134</span></h3>
+                    <p style="margin-bottom: 20px;">since, for, already, yet 등의 시간 부사와 함께 현재완료 사용. 과거 시점부터 현재까지의 계속/경험/완료를 나타냄.</p>
+                    
+                    <div class="pattern-box">
+                        <h4>📌 기출 예문</h4>
+                        <ul class="example-list">
+                            <li><strong>Q.120:</strong> "Mr. Pereira has worked in our legal department <span class="highlight">since</span> his transfer ten years ago"<br>
+                            → since + 과거 시점 = 현재완료 (has worked가 정답)</li>
+                            <li><strong>Q.134:</strong> "will perform / had to perform / was performing / could have performed"<br>
+                            → 문맥상 미래의 공연 예정 = will perform</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>3️⃣ 접속사 vs 전치사 구분 <span class="question-nums">Q.104, 113, 115</span></h3>
+                    <p style="margin-bottom: 20px;">접속사 뒤에는 주어+동사(절), 전치사 뒤에는 명사/동명사!</p>
+                    
+                    <div class="pattern-box">
+                        <h4>📌 황금 공식</h4>
+                        <div class="formula">
+                            접속사 + 주어 + 동사 (절)<br>
+                            전치사 + 명사 (구)
+                        </div>
+                        
+                        <h4 style="margin-top: 20px;">자주 헷갈리는 쌍</h4>
+                        <ul class="example-list">
+                            <li><code>because</code> (접속사) vs <code>because of</code> (전치사)</li>
+                            <li><code>although</code> (접속사) vs <code>despite</code> (전치사)</li>
+                            <li><code>while</code> (접속사) vs <code>during</code> (전치사)</li>
+                            <li><code>if</code> (접속사) vs <code>due to</code> (전치사)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>4️⃣ 관계대명사와 관계부사 <span class="question-nums">Q.117, 132</span></h3>
+                    <p style="margin-bottom: 20px;">선행사의 종류와 문장에서의 역할 파악이 관건!</p>
+                    
+                    <div class="pattern-box">
+                        <h4>📌 분석 포인트</h4>
+                        <ul class="example-list">
+                            <li>선행사가 사람 = <code>who/whom/whose</code></li>
+                            <li>선행사가 사물 = <code>which/that</code></li>
+                            <li>선행사가 장소 + 완전한 문장 = <code>where</code></li>
+                            <li>선행사가 시간 + 완전한 문장 = <code>when</code></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>5️⃣ 동명사 vs to부정사 <span class="question-nums">Q.108, 115</span></h3>
+                    <p style="margin-bottom: 20px;">특정 동사/전치사 뒤의 동사 형태 선택이 핵심!</p>
+                    
+                    <div class="pattern-box">
+                        <h4>📌 필수 암기 패턴</h4>
+                        <ul class="example-list">
+                            <li><strong>동명사를 취하는 동사:</strong> enjoy, finish, consider, avoid + ~ing</li>
+                            <li><strong>to부정사를 취하는 동사:</strong> decide, want, plan, hope + to V</li>
+                            <li><strong>전치사 + 동명사:</strong> 모든 전치사 뒤에는 동명사!</li>
+                            <li><strong>be able to:</strong> + 동사원형 (Q.108: able to fill)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tip-box">
+                    <h4>Part 5&6 학습 전략</h4>
+                    <p>1. <strong>품사 문제</strong>가 가장 많이 출제되므로 문장 구조 분석 능력을 기르세요<br>
+                    2. <strong>어휘 문제</strong>는 연어(collocation) 단위로 학습하면 효과적입니다<br>
+                    3. <strong>접속사/전치사</strong>는 뒤에 오는 구조(절 vs 구)로 구분하세요<br>
+                    4. 유형별로 정리한 이 자료를 반복 학습하면 정답률이 크게 향상됩니다!</p>
+                </div>
+            </div>
+
+            <!-- Part 7 Section -->
+            <div id="part7" class="section">
+                <h2 class="part-title">📖 Part 7 지문 유형별 공략 전략</h2>
+                
+                <div class="card">
+                    <h3>📧 이메일 (E-mail) <span class="question-nums">출제 비중: 25-30%</span></h3>
+                    
+                    <div class="pattern-box">
+                        <h4>공략 전략</h4>
+                        <ul class="example-list">
+                            <li>From/To/Date/Subject 먼저 확인</li>
+                            <li>발신자와 수신자의 관계 파악</li>
+                            <li>요청사항이나 문제 상황 찾기</li>
+                            <li>시간 순서와 인과관계 주목</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: #fff3cd; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                        <strong>Test 10 출제 예시:</strong><br>
+                        • Questions 135-138: Network alert (IT 문제)<br>
+                        • Questions 143-146: Patient portal invitation<br>
+                        • Questions 151-152: Restaurant menu update
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>💬 문자 메시지 (Text Chain) <span class="question-nums">출제 비중: 10-15%</span></h3>
+                    
+                    <div class="pattern-box">
+                        <h4>공략 전략</h4>
+                        <ul class="example-list">
+                            <li>대화 참여자들의 관계 파악</li>
+                            <li>시간 흐름에 따른 상황 변화</li>
+                            <li>각 발화자의 의도와 입장 구분</li>
+                            <li>암시된 정보 추론</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: #fff3cd; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                        <strong>Test 10 출제 예시:</strong><br>
+                        • Questions 149-150: 사무실 고장 문제 (sink 문제 발생 → Mr. Green 연락 필요)
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>📋 공지/광고 (Notice/Advertisement) <span class="question-nums">출제 비중: 20-25%</span></h3>
+                    
+                    <div class="pattern-box">
+                        <h4>공략 전략</h4>
+                        <ul class="example-list">
+                            <li>주요 날짜, 시간, 장소 체크</li>
+                            <li>조건과 제한사항 확인</li>
+                            <li>특별 제공사항이나 혜택 파악</li>
+                            <li>NOT/EXCEPT 문제 대비</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: #fff3cd; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                        <strong>Test 10 출제 예시:</strong><br>
+                        • Questions 139-142: 전력 공급 중단 공지<br>
+                        • Questions 155-157: 자동차 정비소 광고<br>
+                        • Questions 168-171: 창문 시공 브로셔
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>📊 Double/Triple Passages <span class="question-nums">출제 비중: 30-35%</span></h3>
+                    
+                    <div class="pattern-box">
+                        <h4>핵심 전략</h4>
+                        <ul class="example-list">
+                            <li>첫 번째 지문의 전체 맥락 파악</li>
+                            <li>지문 간 연관성 찾기</li>
+                            <li>교차 정보 확인 문제 주의</li>
+                            <li>추론 문제는 두 지문 모두 참조</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: #fff3cd; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                        <strong>Test 10 출제 예시:</strong><br>
+                        • Questions 176-180: 웨비나 + 이메일<br>
+                        • Questions 181-185: 기사 + 리뷰<br>
+                        • Questions 191-195: 이메일 연쇄
+                    </div>
+                </div>
+
+                <div class="tip-box">
+                    <h4>Part 7 고득점 전략</h4>
+                    <p>1. <strong>스캐닝:</strong> 키워드 빠르게 찾기<br>
+                    2. <strong>추론:</strong> 직접 명시되지 않은 정보 파악<br>
+                    3. <strong>NOT 문제:</strong> 모든 선택지 확인 필수<br>
+                    4. <strong>연계 문제:</strong> 여러 지문 교차 확인</p>
+                </div>
+            </div>
+
+            <!-- Vocabulary Section -->
+            <div id="vocab" class="section">
+                <h2 class="part-title">📝 850점 목표 필수 어휘</h2>
+                
+                <div class="card">
+                    <h3>💼 비즈니스/경영</h3>
+                    <div class="vocabulary-grid">
+                        <div class="vocab-item">
+                            <strong>access</strong>
+                            접근, 이용
+                            <span>visitor access to the laboratory</span>
+                        </div>
+                        <div class="vocab-item">
+                            <strong>efficiency</strong>
+                            효율성
+                            <span>efficiency expert</span>
+                        </div>
+                        <div class="vocab-item">
+                            <strong>inventory</strong>
+                            재고
+                            <span>dealing with excess inventory</span>
+                        </div>
+                        <div class="vocab-item">
+                            <strong>capacity</strong>
+                            수용력, 능력
+                            <span>capacity for 500 people</span>
+                        </div>
+                        <div class="vocab-item">
+                            <strong>maintenance</strong>
+                            유지보수
+                            <span>maintenance fee</span>
+                        </div>
+                        <div class="vocab-item">
+                            <strong>disruption</strong>
+                            중단, 방해
+                            <span>minimize disruption</span>
+                        </div>
+                        <div class="vocab-item">
+                            <strong>donation</strong>
+                            기부
+                            <span>charitable donation</span>
+                        </div>
+                        <div class="vocab-item">
+                            <strong>franchise</strong>
+                            프랜차이즈
+                            <span>oversee the franchise</span>
+                        </div>
+                        <div class="vocab-item">
+                            <strong>revenue</strong>
+                            수익
+                            <span>generate revenue</span>
+                        </div>
+                        <div class="vocab-item">
+                            <strong>supplement</strong>
+                            보충, 추가
+                            <span>dietary supplement</span>
+                        </div>
+                        <div class="vocab-item">
+                            <strong>commodity</strong>
+                            상품, 물품
+                            <span>basic commodity</span>
+                        </div>
+                        <div class="vocab-item">
+                            <strong>procurement</strong>
+                            조달
+                            <span>procurement process</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>📋 인사/조직</h3>
+                    <div class="vocabulary-grid">
+                        <div class="vocab-item">
+                            <strong>personnel</strong>
+                            인사, 직원
+                            <span>personnel department</span>
+                        </div>
+                        <div class="vocab-item">
+                            <strong>supervisor</strong>
+                            감독자
+                            <span>novice supervisor</span>
+                        </div>
+                        <div class="vocab-item">
+                            <strong>coordinator</strong>
+                            조정자
+                            <span>patient outreach coordinator</span>
+                        </div>
+                        <div class="vocab-item">
+                            <strong>associate</strong>
+                            동료, 협력자
+                            <span>sales associate</span>
+                        </div>
+                        <div class="vocab-item">
+                            <strong>consultant</strong>
+                            컨설턴트
+                            <span>business consultant</span>
+                        </div>
+                        <div class="vocab-item">
+                            <strong>representative</strong>
+                            대표자
+                            <span>style representative</span>
+                        </div>
+                        <div class="vocab-item">
+                            <strong>executive</strong>
+                            임원
+                            <span>senior executive</span>
+                        </div>
+                        <div class="vocab-item">
+                            <strong>workforce</strong>
+                            노동력
+                            <span>expanding workforce</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>🔑 핵심 동사</h3>
+                    <table class="grammar-table">
+                        <thead>
+                            <tr>
+                                <th>단어</th>
+                                <th>뜻</th>
+                                <th>예문</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>prohibit</strong></td>
+                                <td>금지하다</td>
+                                <td>prohibiting visitor access</td>
+                            </tr>
+                            <tr>
+                                <td><strong>solicit</strong></td>
+                                <td>권유하다, 요청하다</td>
+                                <td>soliciting suggestions</td>
+                            </tr>
+                            <tr>
+                                <td><strong>commence</strong></td>
+                                <td>시작하다</td>
+                                <td>will commence</td>
+                            </tr>
+                            <tr>
+                                <td><strong>demonstrate</strong></td>
+                                <td>보여주다, 시연하다</td>
+                                <td>demonstrate new technologies</td>
+                            </tr>
+                            <tr>
+                                <td><strong>facilitate</strong></td>
+                                <td>용이하게 하다</td>
+                                <td>facilitating productive meetings</td>
+                            </tr>
+                            <tr>
+                                <td><strong>implement</strong></td>
+                                <td>실행하다</td>
+                                <td>implement changes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>anticipate</strong></td>
+                                <td>예상하다</td>
+                                <td>we anticipate that</td>
+                            </tr>
+                            <tr>
+                                <td><strong>accommodate</strong></td>
+                                <td>수용하다</td>
+                                <td>accommodate customers</td>
+                            </tr>
+                            <tr>
+                                <td><strong>oversee</strong></td>
+                                <td>감독하다</td>
+                                <td>oversee the franchises</td>
+                            </tr>
+                            <tr>
+                                <td><strong>reimburse</strong></td>
+                                <td>상환하다</td>
+                                <td>reimburse for expenses</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <h3>📌 필수 관용 표현</h3>
+                    <div class="signal-words">
+                        <span class="signal-word">break ground (착공하다)</span>
+                        <span class="signal-word">in the meantime (그 동안)</span>
+                        <span class="signal-word">be suited for (~에 적합하다)</span>
+                        <span class="signal-word">in appreciation of (~에 감사하여)</span>
+                        <span class="signal-word">on behalf of (~를 대신하여)</span>
+                        <span class="signal-word">prior to (~ 이전에)</span>
+                        <span class="signal-word">in terms of (~의 관점에서)</span>
+                        <span class="signal-word">with regard to (~에 관하여)</span>
+                        <span class="signal-word">as of (~ 시점부터)</span>
+                        <span class="signal-word">in accordance with (~에 따라)</span>
+                    </div>
+                </div>
+
+                <div class="tip-box">
+                    <h4>어휘 학습법</h4>
+                    <p>1. <strong>문맥 학습:</strong> 단독 암기보다 문장 속에서<br>
+                    2. <strong>연어 관계:</strong> 자주 함께 쓰이는 단어 조합<br>
+                    3. <strong>품사 변형:</strong> 명사-동사-형용사-부사 세트로<br>
+                    4. <strong>반복 복습:</strong> 3일, 7일, 30일 주기로</p>
+                </div>
+            </div>
+
+            <!-- Summary Section -->
+            <div id="summary" class="section">
+                <h2 class="part-title">✨ Test 10 학습 요약</h2>
+                
+                <div class="card">
+                    <h3>🎯 Part 5&6 핵심 포인트</h3>
+                    <ul class="example-list">
+                        <li><strong>부사 vs 형용사:</strong> 수식하는 대상으로 구분 (동사→부사, 명사→형용사)</li>
+                        <li><strong>시제:</strong> since/for는 현재완료, 미래 일정은 will</li>
+                        <li><strong>접속사 vs 전치사:</strong> 뒤에 오는 구조로 판단 (절 vs 구)</li>
+                        <li><strong>관계사:</strong> 선행사의 종류와 문장 완전성 체크</li>
+                        <li><strong>동명사 vs to부정사:</strong> 동사별 고정 패턴 암기</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>🎯 Part 7 핵심 전략</h3>
+                    <ul class="example-list">
+                        <li><strong>이메일:</strong> From/To/Subject로 관계 파악</li>
+                        <li><strong>문자:</strong> 대화 흐름과 각 화자의 입장 구분</li>
+                        <li><strong>공지/광고:</strong> 날짜, 조건, 제한사항 체크</li>
+                        <li><strong>다중 지문:</strong> 공통 요소 찾기, 정보 교차 확인</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>🎯 필수 어휘 TOP 10</h3>
+                    <ol style="margin-left: 20px;">
+                        <li><strong>accommodate</strong> - 수용하다</li>
+                        <li><strong>reimburse</strong> - 상환하다</li>
+                        <li><strong>facilitate</strong> - 용이하게 하다</li>
+                        <li><strong>oversee</strong> - 감독하다</li>
+                        <li><strong>implement</strong> - 실행하다</li>
+                        <li><strong>anticipate</strong> - 예상하다</li>
+                        <li><strong>prohibit</strong> - 금지하다</li>
+                        <li><strong>solicit</strong> - 요청하다</li>
+                        <li><strong>commence</strong> - 시작하다</li>
+                        <li><strong>demonstrate</strong> - 시연하다</li>
+                    </ol>
+                </div>
+
+                <div class="tip-box">
+                    <h4>850점 달성 마지막 조언</h4>
+                    <p><strong>문법은 정확하게, 어휘는 폭넓게, 독해는 전략적으로!</strong><br><br>
+                    이 자료를 매일 30분씩 반복 학습하면 2-3주 내에 확실한 점수 향상을 경험할 수 있습니다. 
+                    특히 Part 5&6는 패턴이 정해져 있으므로, 유형별 접근법을 완벽히 익히면 정답률 90% 이상도 가능합니다!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2024 TOEIC Test 10 완벽 분석 가이드 | 850점 목표 달성을 응원합니다! 🚀</p>
+        </div>
+    </div>
+
+    <script>
+        // Navigation functionality
+        document.querySelectorAll('.nav-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const sectionId = this.dataset.section;
+                
+                // Hide all sections
+                document.querySelectorAll('.section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Show selected section
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                }
+                
+                // Update active button
+                document.querySelectorAll('.nav-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add hover effect to vocabulary items
+        document.querySelectorAll('.vocab-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05) translateY(-5px)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
